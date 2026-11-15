@@ -3,24 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="theme-color" content="#f4f7fb">
+    <meta name="description" content="Check current conditions and the upcoming hourly forecast for a city.">
+    <title>Weather | At a glance</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <main class="app-shell">
+        <section id="weather_container" class="weather-card" aria-labelledby="page-title">
+            <header class="app-header">
+                <p class="eyebrow">YOUR LOCAL FORECAST</p>
+                <h1 id="page-title">Weather, at a glance.</h1>
+                <p class="intro">Find current conditions and the forecast for any city.</p>
+            </header>
 
-    <div id="weather_container" >
-    <h2>Weather App</h2> 
-    <input id="city_name" type="text" placeholder="Put city name">
-    <button onclick="getWeather()"  id="search">Search</button>
+            <form id="weather_search" class="search-form">
+                <label for="city_name">City or place</label>
+                <div class="search-controls">
+                    <input
+                        id="city_name"
+                        name="city"
+                        type="search"
+                        placeholder="e.g. Dhaka"
+                        autocomplete="off"
+                        required
+                        aria-describedby="search-hint"
+                    >
+                    <button id="search" type="submit">
+                        <span class="button-label">Search</span>
+                        <span class="button-spinner" aria-hidden="true"></span>
+                    </button>
+                </div>
+                <p id="search-hint" class="field-hint">Enter a city name to see its weather.</p>
+            </form>
 
-    <!--src attribute (ADD VIA JS   )-->
-    <img id="weather_icon" alt="A weather_icon">
-    
-    <div id="temp_div"></div>
-    <div id="weather_info"></div>
-    <div id="hourly_forcast"></div>
+            <p id="weather_status" class="status-message" role="status" aria-live="polite"></p>
 
-    </div>
+            <section id="weather_results" class="weather-results" aria-label="Weather results" aria-busy="false" hidden>
+                <div class="current-weather">
+                    <div class="current-copy">
+                        <p class="section-label">CURRENT CONDITIONS</p>
+                        <h2 id="city_heading"></h2>
+                        <p id="weather_info" class="weather-description"></p>
+                    </div>
+                    <div class="temperature-group">
+                        <img id="weather_icon" alt="" width="96" height="96">
+                        <p id="temp_div" class="temperature"></p>
+                    </div>
+                </div>
+
+                <section class="forecast-section" aria-labelledby="forecast-title">
+                    <div class="forecast-heading">
+                        <h2 id="forecast-title">Coming up</h2>
+                        <p>Next 24 hours</p>
+                    </div>
+                    <div id="hourly_forcast" class="forecast-list" aria-label="Hourly forecast"></div>
+                </section>
+            </section>
+
+            <footer class="card-footer">Weather data provided by OpenWeather</footer>
+        </section>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
