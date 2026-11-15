@@ -4,6 +4,10 @@ This small browser app looks up a city's current weather and shows a short
 hourly forecast. It is also a hands-on example of basic JavaScript, the DOM,
 and making requests to a web API.
 
+## Live app
+
+Try the deployed app: [nsweatherapp.vercel.app](https://nsweatherapp.vercel.app/)
+
 ## Run the app
 
 1. Make sure the project files (`index.html`, `style.css`, and `script.js`) are
